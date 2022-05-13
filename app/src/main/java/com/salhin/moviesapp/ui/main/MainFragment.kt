@@ -60,10 +60,10 @@ class MainFragment : Fragment(), MoviesListItemClickListener, Constants {
     }
 
     private fun actions() {
-        binding.nestedScroll.setOnScrollChangeListener { v: NestedScrollView?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int ->
+        binding.nestedScroll.setOnScrollChangeListener { v: NestedScrollView?, _: Int, scrollY: Int, _: Int, _: Int ->
             run {
                 if (v != null) {
-                    if (scrollY == v?.getChildAt(0)?.measuredHeight?.minus(v.measuredHeight)) {
+                    if (scrollY == v.getChildAt(0)?.measuredHeight?.minus(v.measuredHeight)) {
                         if (page < totalPages) {
                             page++;
                             getMovies()
@@ -104,7 +104,7 @@ class MainFragment : Fragment(), MoviesListItemClickListener, Constants {
 
     override fun onMoviesItemClickListener(clickedMovie: MovieDetails) {
         var movieDetails = Bundle()
-        movieDetails.putInt(movieId, clickedMovie.id)
+        movieDetails.putInt(bundleMovieId, clickedMovie.id)
 
         navController.navigate(
             R.id.action_mainFragment_to_movieDetailsFragment,

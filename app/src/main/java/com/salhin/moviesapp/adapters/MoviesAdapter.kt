@@ -11,12 +11,13 @@ import com.bumptech.glide.Glide
 import com.salhin.moviesapp.R
 import com.salhin.moviesapp.models.MovieDetails
 import com.salhin.moviesapp.ui.main.MoviesListItemClickListener
+import com.salhin.moviesapp.utils.Constants
 
 class MoviesAdapter(
     private var listOfMovies: MutableList<MovieDetails>,
     var itemClickListener: MoviesListItemClickListener
 ) :
-    RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+    RecyclerView.Adapter<MoviesAdapter.ViewHolder>(), Constants {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesAdapter.ViewHolder {
         val v: View = LayoutInflater.from(parent.context)
@@ -36,7 +37,7 @@ class MoviesAdapter(
         if (listOfMovies[position].adult)
            holder.adultsTag.visibility = VISIBLE
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w500/" + listOfMovies[position].backdrop_path)
+            .load( imagesBaseUrl + listOfMovies[position].backdrop_path)
             .into(holder.movieImage)
 
 

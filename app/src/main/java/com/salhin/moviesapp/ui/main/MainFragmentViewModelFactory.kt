@@ -2,7 +2,6 @@ package com.salhin.moviesapp.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.salhin.moviesapp.network.APIInterface
 
 class MainFragmentViewModelFactory(private val repository: MainFragmentRepository): ViewModelProvider.Factory {
 

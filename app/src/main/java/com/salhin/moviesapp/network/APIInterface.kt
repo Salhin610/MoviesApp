@@ -1,6 +1,7 @@
 package com.salhin.moviesapp.network
 
 import com.google.gson.GsonBuilder
+import com.salhin.moviesapp.models.MovieDetails
 import com.salhin.moviesapp.models.MoviesResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,6 +50,14 @@ interface APIInterface  {
         @Query("page") page: Int,
     )
             : Call<MoviesResponse>
+
+
+    @GET("movie/{movieId}")
+    fun getMovieDetails(
+        @Path("movieId") movieId: Int,
+        @Query("api_key") apiKey: String,
+    )
+            : Call<MovieDetails>
 
 
 
