@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit
 interface APIInterface  {
 
     companion object {
+        val apiKey: String = "c9856d0cb57c3f14bf75bdc6c063b8f3"
         var retrofitService: APIInterface? = null
         var baseUrl: String = "https://api.themoviedb.org/3/"
         fun getInstance(): APIInterface {
@@ -43,7 +44,7 @@ interface APIInterface  {
 
 
     @GET("discover/movie")
-    fun register(
+    fun getMovies(
         @Query("api_key") apiKey: String,
         @Query("page") page: Int,
     )

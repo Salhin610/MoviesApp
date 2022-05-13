@@ -2,14 +2,15 @@ package com.salhin.moviesapp.ui.movieDetails
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.salhin.moviesapp.databinding.FragmentMovieDetailsBinding
+import com.salhin.moviesapp.utils.Constants
 
-class MovieDetailsFragment : Fragment() {
-
+class MovieDetailsFragment : Fragment(), Constants {
 
     private lateinit var viewModel: MovieDetailsViewModel
 
@@ -25,6 +26,7 @@ class MovieDetailsFragment : Fragment() {
         _binding = FragmentMovieDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        Log.e("MovieId", arguments?.getInt(movieId,0).toString())
         return root
 
     }
